@@ -5,7 +5,7 @@ metadata:
 spec:
   href: 'https://code.quarkus.io'
   location: ApplicationMenu
-  text: Quarkus Project Initalizer - Go Subatomic
+  text: Quarkus Project Initalizer
   applicationMenu:
     section: Quarkus
     imageURL: https://i.ibb.co/wc555DB/quarkus-logo.png
