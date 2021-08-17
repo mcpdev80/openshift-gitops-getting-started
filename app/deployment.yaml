@@ -3,27 +3,29 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: spring-petclinic
-    app.kubernetes.io/component: web
-    app.kubernetes.io/instance: spring-petclinic
-    app.kubernetes.io/name: spring-petclinic
-    app.kubernetes.io/part-of: spring-petclinic
+    app: quarkus-build
+    app.kubernetes.io/component: quarkus-build
+    app.kubernetes.io/instance: quarkus-build
+    app.kubernetes.io/name: quarkus-build
+    app.kubernetes.io/part-of: quarkus-build
     app.openshift.io/runtime: java
-  name: spring-petclinic
+    app.openshift.io/runtime-version: openjdk-11-el7
+  name: quarkus-build
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: spring-petclinic
+      app: quarkus-build
   template:
     metadata:
       labels:
-        app: spring-petclinic
+        app: quarkus-build
     spec:
       containers:
-      - name: spring-petclinic
+      - name: quarkus-build
         imagePullPolicy: Always
-        image: quay.io/siamaksade/spring-petclinic:latest
+        image: >-
+            image-registry.openshift-image-registry.svc:5000/tekton-quarkus/quarkus-build:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
