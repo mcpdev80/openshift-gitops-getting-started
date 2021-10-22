@@ -24,8 +24,7 @@ spec:
       containers:
       - name: quarkus-build
         imagePullPolicy: Always
-        image: >-
-            image-registry.openshift-image-registry.svc:5000/tekton-quarkus/quarkus-build-options:latest
+        image: image-registry.openshift-image-registry.svc:5000/deepspace-int/quarkus-build:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
