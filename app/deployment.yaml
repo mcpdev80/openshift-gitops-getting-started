@@ -3,28 +3,28 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: quarkus-build
-    app.kubernetes.io/component: quarkus-build
-    app.kubernetes.io/instance: quarkus-build
-    app.kubernetes.io/name: quarkus-build
-    app.kubernetes.io/part-of: quarkus-build
+    app: workshop
+    app.kubernetes.io/component: workshop
+    app.kubernetes.io/instance: workshop
+    app.kubernetes.io/name: workshop
+    app.kubernetes.io/part-of: workshop
     app.openshift.io/runtime: java
     app.openshift.io/runtime-version: openjdk-11-el7
-  name: quarkus-build
+  name: workshop
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: quarkus-build
+      app: workshop
   template:
     metadata:
       labels:
-        app: quarkus-build
+        app: workshop
     spec:
       containers:
-      - name: quarkus-build
+      - name: workshop
         imagePullPolicy: Always
-        image: image-registry.openshift-image-registry.svc:5000/deepspace-int/quarkus-build:latest
+        image: image-registry.openshift-image-registry.svc:5000/workshop-int/workshop:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
