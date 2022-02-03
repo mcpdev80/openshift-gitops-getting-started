@@ -2,12 +2,12 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: quarkus-build
-  name: quarkus-build
+    app: workshop
+  name: workshop
 spec:
   port:
     targetPort: 8080-tcp
   to:
     kind: Service
-    name: quarkus-build
+    name: workshop
     weight: 100
