@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"workshop:latest","namespace":"workshop-prod"},"fieldPath":"spec.template.spec.containers[?(@.name==\"workshop\")].image","pause":"true"}]
   labels:
     app: workshop
     app.kubernetes.io/component: workshop
@@ -24,7 +26,7 @@ spec:
       containers:
       - name: workshop
         imagePullPolicy: Always
-        image: image-registry.openshift-image-registry.svc:5000/workshop-int/workshop:latest
+        image: workshop-prod/workshop:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
