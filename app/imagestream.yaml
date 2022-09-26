@@ -1,0 +1,26 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: workshop
+  namespace: workshop-prod
+  labels:
+    app: workshop
+    app.kubernetes.io/component: workshop
+    app.kubernetes.io/instance: workshop
+    app.kubernetes.io/name: workshop
+    app.kubernetes.io/part-of: workshop-app
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-17-ubi8
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: latest
+      annotations: null
+      from:
+        kind: DockerImage
+        name: quay.io/nexus6/quarkus-func:latest
+      importPolicy:
+        insecure: true
+      referencePolicy:
+        type: Source
