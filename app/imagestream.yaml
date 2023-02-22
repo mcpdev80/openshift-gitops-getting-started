@@ -2,7 +2,7 @@ kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
   name: workshop
-  namespace: workshop-prod
+  namespace: workshop-prod-user1
   labels:
     app: workshop
     app.kubernetes.io/component: workshop
